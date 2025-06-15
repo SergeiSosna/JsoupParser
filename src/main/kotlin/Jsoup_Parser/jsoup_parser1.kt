@@ -7,10 +7,10 @@ fun main() {
 
     try {
         val doc: Document = Jsoup.connect(URL).get()
-        val quoteElements = doc.select(".sc-2aegk7-2")
+        val quoteElements = doc.select("article")
 
         println("Цитаты из произведения \"Автостопом по галактике\" Дугласа Адамса [[1]]:")
-        for (element in quoteElements) {
+        quoteElements.forEach { element ->
             println("- ${element.text()}")
         }
     } catch (e: Exception) {
